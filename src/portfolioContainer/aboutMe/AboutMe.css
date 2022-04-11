@@ -1,53 +1,56 @@
 .about-me-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 50px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0 0 0;
 }
 
 .about-me-parent {
-  max-width: 1000px;
-  width: 70%;
+    max-width: 1000px;
+    width: 70%;
 }
 .about-me-card {
-  display: flex;
-  box-shadow: 0 0px 20px -2px #1f2235;
+    display: flex;
+    box-shadow: 0 0px 20px -2px black;
+    background-color: white;
+    text-align: center;
 }
 .about-me-details {
-  text-align: justify;
-  width: 100%;
-  padding: 30px;
+    text-align: center;
+    width: 100%;
+    padding: 30px;
 }
 .about-me-description {
-  width: 100%;
-  font-size: 12px;
+    width: 100%;
+    font-size: 12px;
 }
 .about-me-highlights {
-  margin: 80px 0;
+    margin: 80px 0;
 }
 .highlight-heading {
-  font-family: "Poppins Bold";
-  font-size: 14px;
-  margin: 0 0 5px 0;
+    font-family: "Poppins Bold";
+    font-size: 14px;
+    margin: 0 0 5px 0;
 }
 .highlight {
-  display: flex;
-  align-items: center;
-  margin: 5px;
-  font-size: 12px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 5px;
+    font-size: 12px;
 }
 .highlight-blob {
-  height: 12px;
-  width: 12px;
-  margin: 0 10px 0 0;
-  background-color: var(--dark-orange);
-  border-radius: 50%;
+    height: 12px;
+    width: 12px;
+    margin: 0 10px 0 0;
+    background-color: var(--accent-one);
+    border-radius: 50%;
 }
 .about-me-options .highlighted-btn {
-  margin: 0 0 0 30px;
+    margin: 0 0 0 30px;
 }
 
 .about-me-options {
-  align-self: flex-end;
+    align-self: flex-end;
 }

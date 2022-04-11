@@ -3,59 +3,95 @@ import ScreenHeading from "../../utilities/ScreenHeading/ScreenHeading";
 import ScrollService from "../../utilities/ScrollService";
 import Animations from "../../utilities/Animations";
 import "./Projects.css";
+import EncoreImage from "./Encore.png";
+import MunchmapImage from "./Munchmap.png";
+import WebsiteImage from "./Website.png";
 
 export default function Projects(props) {
-  let fadeInScreenHandler = (screen) => {
-    if (screen.fadeScreen != props.id) return;
-    Animations.animations.fadeInScreen(props.id);
-  };
-  const fadeInSubscription =
-    ScrollService.currentScreenFadeIn.subscribe(fadeInScreenHandler);
-  const SCREEN_CONSTANTS = {
-    description:
-      "lorem ipsim lorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsim",
-    highlights: {
-      bullets: [
-        "Full stack web development",
-        "Interactive Front End design",
-        "Test Driven Design",
-      ],
-      heading: "Here are a Few Highlights:",
-    },
-  };
-  const renderHighlights = () => {
-    return SCREEN_CONSTANTS.highlights.bullets.map((value, i) => (
-      <div className="highlight" key={i}>
-        <div className="highlight-blob"></div>
-        <span>{value}</span>
-      </div>
-    ));
-  };
-  return (
-    <div className="about-me-container screen-container" id={props.id || ""}>
-      <div className="about-me-parent">
-        <ScreenHeading title={"About Me"} />
-        <div className="about-me-card">
-          <div className="about-me-details">
-            <span className="about-me-description">
-              {SCREEN_CONSTANTS.description}
-            </span>
-            <div className="highlight-heading">
-              <span>{SCREEN_CONSTANTS.highlights.heading}</span>
+    let fadeInScreenHandler = (screen) => {
+        if (screen.fadeScreen != props.id) return;
+        Animations.animations.fadeInScreen(props.id);
+    };
+    const fadeInSubscription =
+        ScrollService.currentScreenFadeIn.subscribe(fadeInScreenHandler);
+    const PROJECTS = [
+        {
+            title: "Encore",
+            description: "Spotify Song Guessing Game",
+            gitLink: "https://github.com/ddennis924/EncoreGame",
+            img: EncoreImage,
+            tags: ["Nodejs", "HTML", "Expressjs", "CSS"],
+            link: "https://nwencore.herokuapp.com/",
+        },
+        {
+            title: "MunchMap",
+            description: "Spotify Song Guessing Game",
+            gitLink: "https://github.com/ddennis924/EncoreGame",
+            img: MunchmapImage,
+            tags: ["Java", "Swing", "OOP"],
+        },
+        {
+            title: "This Website!",
+            description: "",
+            gitLink: "https://github.com/ddennis924/EncoreGame",
+            img: WebsiteImage,
+            tags: ["Reactjs", "HTML", "CSS", "Nodejs"],
+        },
+    ];
+    let printTags = (tagslist) => {
+        return tagslist.map((tag, i) => (
+            <li key={tag} className="project-tag">
+                {tag}
+            </li>
+        ));
+    };
+    const printProjects = () => {
+        return PROJECTS.map((project, i) => (
+            <div className="project-card">
+                <img
+                    className="project-image"
+                    src={project.img}
+                    alt="connection unstable"
+                ></img>
+                <div className="project-details">
+                    <div className="project-heading">
+                        <span>{project.title}</span>
+                    </div>
+                    <div className="project-description">
+                        <span>{project.description}</span>
+                    </div>
+                    <div className="project-options">
+                        {project.link ? (
+                            <a href={project.link}>
+                                <button className="btn primary-btn">
+                                    Try it
+                                </button>
+                            </a>
+                        ) : (
+                            <div></div>
+                        )}
+                        <a href={project.gitLink}>
+                            <button className="btn highlighted-btn">
+                                GitHub
+                            </button>
+                        </a>
+                    </div>
+                    <div className="project-tags-container">
+                        {printTags(project.tags)}
+                    </div>
+                </div>
             </div>
-            {renderHighlights()}
-            <div className="about-me-options">
-              <button className="btn primary-btn">
-                {""}
-                Contact Me{""}
-              </button>
-              <a href="DenResume.pdf" download="DenResume.pdf">
-                <button className="btn highlighted-btn">Get Resume</button>
-              </a>
+        ));
+    };
+    return (
+        <div
+            className="projects-container screen-container"
+            id={props.id || ""}
+        >
+            <div className="projects-parent">
+                <ScreenHeading title={"Projects"} />
+                <div className="projects">{printProjects()}</div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 }
