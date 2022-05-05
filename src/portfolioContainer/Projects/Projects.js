@@ -9,11 +9,14 @@ import WebsiteImage from "./Website.png";
 
 export default function Projects(props) {
     let fadeInScreenHandler = (screen) => {
-        if (screen.fadeScreen != props.id) return;
+        if (screen.fadeInScreen !== props.id) return;
         Animations.animations.fadeInScreen(props.id);
     };
-    const fadeInSubscription =
+
+    let subscribeFade = () => {
         ScrollService.currentScreenFadeIn.subscribe(fadeInScreenHandler);
+    };
+
     const PROJECTS = [
         {
             title: "Encore",
@@ -40,7 +43,7 @@ export default function Projects(props) {
     ];
     let printTags = (tagslist) => {
         return tagslist.map((tag, i) => (
-            <li key={tag} className="project-tag">
+            <li key={i.toString()} className="project-tag">
                 {tag}
             </li>
         ));
@@ -83,14 +86,15 @@ export default function Projects(props) {
             </div>
         ));
     };
+    subscribeFade();
     return (
         <div
-            className="projects-container screen-container"
+            className="projects-container screen-container fade-in"
             id={props.id || ""}
         >
             <div className="projects-parent">
                 <ScreenHeading title={"Projects"} />
-                <div className="projects">{printProjects()}</div>
+                <div className="projects ">{printProjects()}</div>
             </div>
         </div>
     );

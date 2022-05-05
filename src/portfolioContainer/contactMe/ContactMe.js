@@ -11,11 +11,12 @@ import "./ContactMe.css";
 
 export default function ContactMe(props) {
     let fadeInScreenHandler = (screen) => {
-        if (screen.fadeScreen != props.id) return;
+        if (screen.fadeInScreen !== props.id) return;
         Animations.animations.fadeInScreen(props.id);
     };
-    const fadeInSubscription =
+    let subscribeFade = () => {
         ScrollService.currentScreenFadeIn.subscribe(fadeInScreenHandler);
+    };
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
@@ -54,13 +55,17 @@ export default function ContactMe(props) {
                 setBanner(res.data.msg);
                 toast.success(res.data.msg);
                 setBool(false);
+                setName("");
+                setEmail("");
+                setMessage("");
             }
         } catch (error) {
             console.log(error);
         }
     };
+    subscribeFade();
     return (
-        <div className="main-container" id={props.id || ""}>
+        <div className="main-container fade-in" id={props.id || ""}>
             <ScreenHeading title={"Contact Me"} />
             <div className="central-form">
                 <div className="img-back">

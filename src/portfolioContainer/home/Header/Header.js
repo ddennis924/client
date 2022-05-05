@@ -17,8 +17,7 @@ export default function Header() {
         let screenIndex = GET_SCREEN_INDEX(currentScreen.screenInView);
         if (screenIndex < 0) return;
     };
-    let currentScreenSubscription =
-        ScrollService.currentScreenBroadCaster.subscribe(updateCurrentScreen);
+    ScrollService.currentScreenBroadCaster.subscribe(updateCurrentScreen);
 
     const getHeaderOptions = () => {
         return TOTAL_SCREENS.map((screen, i) => (
