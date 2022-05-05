@@ -10,6 +10,7 @@ export default function Footer() {
                     alt="nothing found"
                 />
                 <img
+                    className="under"
                     src={require("../../../assets/Home/shape-bg2.png")}
                     alt="nothing found"
                 />

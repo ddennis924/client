@@ -20,7 +20,7 @@ export default function Projects(props) {
             description: "Spotify Song Guessing Game",
             gitLink: "https://github.com/ddennis924/EncoreGame",
             img: EncoreImage,
-            tags: ["Nodejs", "HTML", "Expressjs", "CSS"],
+            tags: ["Javascript", "Node.js", "HTML", "Express.js", "CSS"],
             link: "https://nwencore.herokuapp.com/",
         },
         {
@@ -35,7 +35,7 @@ export default function Projects(props) {
             description: "",
             gitLink: "https://github.com/ddennis924/EncoreGame",
             img: WebsiteImage,
-            tags: ["Reactjs", "HTML", "CSS", "Nodejs"],
+            tags: ["Javascript", "React.js", "HTML", "CSS", "Node.js"],
         },
     ];
     let printTags = (tagslist) => {
